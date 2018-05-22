@@ -1,0 +1,25 @@
+{% extends "home-base.html"%}
+{% block title %}About{% endblock %}
+
+{% block head%}
+  {{ super() }}
+{% endblock%}
+
+{% block page_content%}
+  <!-- Page Content -->
+  <div class="container">
+    <h1 class="mt-5"><i class="fa fa-address-card-o" aria-hidden="true"></i> About Me</h1>
+    <p>This project is developed by <a id="developer" href="https://github.com/bellanoll" data-toggle="tooltip" data-placement="top" title="Once upon a time this GIRL was a pretty good developer :)">Isabella Noll</a>.</p>
+    <p>My project is a database of movies, that are the movie, year, about and genre.  It includes many different aspects pages and the ability to edit the data.</p>
+<img src="{{ url_for('static', filename='img/_bthxzH8_400x400.jpg') }}"
+  </div>
+{% endblock%}
+
+{% block scripts%}
+  {{super()}}
+  <script>
+  $(document).ready(function () {
+    $('#developer').tooltip()
+  });
+  </script>
+{% endblock%}

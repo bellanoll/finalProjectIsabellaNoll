@@ -1,0 +1,37 @@
+{% extends "home-base.html"%}
+{% block title %}Delete year{% endblock %}
+{% block page_content%}
+
+  <!-- Page Content -->
+  <div class="container">
+    <h1 class="mt-5"><i class="fa fa-music" aria-hidden="true"></i> Delete the following year:</h1>
+    <form action="/year/delete/{{year.id}}" method="post">
+      <div class="form-group">
+        <label>Year</label>
+        <input class="form-control" type="text" name="year" value="{{year.name}}" required="true" readonly="true">
+      </div>
+      <div class="form-group">
+        <label>about</label>
+        <input class="form-control" type="text" name="about" value="{{song.artist.name}}" readonly="true">
+      </div>
+      <div class="form-group">
+        <label>genre</label>
+        <textarea class="form-control" name="genre" required="true" readonly="true">{{year.movies}}</textarea>
+      </div>
+      <button type="submit" class="btn btn-danger" id="delete_btn">Delete</button>
+    </form>
+  </div>
+
+{% endblock%}
+{% block scripts%}
+  {{super()}}
+  <script>
+  $(document).ready(function () {
+    $('#delete_btn').click(function () {
+      if (! confirm('Are you sure?')) {
+        return false;
+      }
+    })
+  });
+  </script>
+{% endblock%}
